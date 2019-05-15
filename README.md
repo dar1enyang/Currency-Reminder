@@ -1,6 +1,7 @@
 # Currency-reminder
 
-A tool to monitor currency prices and allow custiomize on alert settings.
+Currency reminder bring you live information so you can keep track of the REAL exchange rate.
+Stay ahead of sneaky hidden exchange rate mark ups.
 
 ## Installation
 
