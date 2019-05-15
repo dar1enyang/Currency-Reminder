@@ -1,7 +1,6 @@
-
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -29,41 +28,91 @@
           font-size: 3.5rem;
         }
       }
+
+
+
+
+
+
+
     </style>
     <!-- Custom styles for this template -->
     <link href="cover.css" rel="stylesheet">
-  </head>
-  <body class="text-center">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-  <header class="masthead mb-auto">
-    <div class="inner">
-      {% if session['email'] %}
-      <h3 class="masthead-brand">{{session['name']}}</h3>
-      {% endif %}
-      {% if not session['email'] %}
-      <h3 class="masthead-brand">Welcome</h3>
-      {% endif %}
-      <nav class="nav nav-masthead justify-content-center">
-        {% if not session['email'] %}
-        <a class="nav-link active" href="/register">Register</a>
-        <a class="nav-link" href="/login">Login</a>
-        {% endif %}
-        {% if session['email'] %}
-        <a class="nav-link" href="/logout">Logout</a>
-        {% endif %}
-      </nav>
-    </div>
-  </header>
+</head>
+<body class="text-center">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
-  {% block content%}
+    <header class="masthead mb-auto">
+        <div class="inner">
+            {% if session['email'] %}
+            <center><h3 class="title">{{session['name']}} Currency Reminder</h3></center>
+            {% endif %}
+            {% if not session['email'] %}
+            <center><h3 class="title">Welcome to Currency Reminder</h3></center>
+            {% endif %}
+            <!-- Example single danger button -->
+            <div class="btn-group">
+                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false">
+                    Account
+                </button>
+                <div class="dropdown-menu">
+                    {% if session['email'] %}
+                    <a class="dropdown-item" href="#">{{session['email']}}</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/change_email">Change email</a>
+                    <a class="dropdown-item" href="/logout">Logout</a>
+                    {% endif %}
+                    {% if not session['email'] %}
+                    <a class="dropdown-item" href="/register">Register</a>
+                    <a class="dropdown-item" href="/login">Login</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% if session['email'] %}
+            <div class="btn-group">
+                <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false">
+                    Alert
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/new_alert">Create Alert</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/cash_alert">現金匯率</a>
+                    <a class="dropdown-item" href="/sign_alert">即期匯率</a
 
-        {% endblock %}
+                </div>
+            </div>
+            {% endif %}
+            <button type="button" class="btn btn-info btn-home"><a href="/">觀看匯率</a></button>
+            <!--            <nav class="nav nav-masthead justify-content-center">-->
+            <!--                {% if not session['email'] %}-->
+            <!--                <a class="nav-link active" href="/register">Register</a>-->
+            <!--                <a class="nav-link" href="/login">Login</a>-->
+            <!--                {% endif %}-->
+            <!--                {% if session['email'] %}-->
+            <!--                <a class="nav-link" href="/new_alert">New_alert</a>-->
+            <!--                <a class="nav-link" href="/cash_alert">cash_alert</a>-->
+            <!--                <a class="nav-link" href="/sign_alert">sign_alert</a>-->
+            <!--                <a class="nav-link" href="/change_email">Change email</a>-->
+            <!--                <a class="nav-link" href="/logout">Logout</a>-->
+            <!--                {% endif %}-->
+            <!--            </nav>-->
+        </div>
+    </header>
 
-  <footer class="mastfoot mt-auto">
-    <div class="inner">
-      <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-    </div>
-  </footer>
+    {% block content%}
+
+    {% endblock %}
+
+    <footer class="mastfoot mt-auto">
+        <div class="inner">
+            <center><p>Created by <a href="https://github.com/dar1enyang">@DarienYang</a>.</p></center>
+        </div>
+    </footer>
 </div>
+
 </body>
 </html>
