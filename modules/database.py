@@ -1,12 +1,19 @@
 import pymongo
+import configparser
+
 
 class Database(object):
-    URI = ['localhost:27017']
+    #URI = ['localhost:27017']
+    config = configparser.ConfigParser()
+    config.read('MLAB.cfg')
+    URI = []
+    URI.append(config.get("MLAB", "URI"))
     DATABASE = None
 
     def initialize():
         client = pymongo.MongoClient(Database.URI)
-        Database.DATABASE = client['currency']
+        #Database.DATABASE = client['currency']
+        Database.DATABASE = client.get_default_database()
 
     @staticmethod
     def insert(collection, data):
