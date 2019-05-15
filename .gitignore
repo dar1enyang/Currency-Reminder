@@ -14,8 +14,7 @@ develop-eggs
 .installed.cfg
 *.cfg
 
-*.cfg
-.cfg
+
 
 
 # Installer logs

@@ -1,13 +1,9 @@
 import pymongo
-import configparser
 
 
 class Database(object):
     #URI = ['localhost:27017']
-    config = configparser.ConfigParser()
-    config.read('MLAB.cfg')
-    URI = []
-    URI.append(config.get("MLAB", "URI"))
+    URI = ['mongodb://darienadmin:admin123@ds157276.mlab.com:57276/heroku_rm18gpf1']
     DATABASE = None
 
     def initialize():
